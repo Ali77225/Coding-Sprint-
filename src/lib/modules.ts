@@ -92,7 +92,7 @@ export const CARD_CONTENT: Record<string, CardContent> = {
       }
     ]
   },
-  "premiere-guerre-mondiale-sarajevo": {
+  "premiere-guerre-mondiale-Alliances": {
     body: "L'étincelle survient le 28 juin 1914 quand l'archiduc François-Ferdinand est assassiné par Gavrilo Princip.",
     quiz: [
       {
