@@ -1,7 +1,7 @@
 "use client"
 import { useState, useCallback } from "react"
 
-// XP  pour débloquer les musiques
+// XP thresholds pour débloquer les musiques
 export const MUSIC_UNLOCKS: Record<number, string> = {
   30:  "🎵 Ambiance Study Lo-fi débloquée !",
   60:  "🎵 Musique Classique débloquée !",
@@ -20,7 +20,6 @@ export function useXP() {
     setXp(prev => {
       const next = prev + amount
 
-      // Vérifier si une musique est débloquée à ce seuil
       Object.entries(MUSIC_UNLOCKS).forEach(([threshold, music]) => {
         const t = Number(threshold)
         if (prev < t && next >= t) {
@@ -30,7 +29,7 @@ export function useXP() {
         }
       })
 
-      // Level up
+    
       if (next >= XP_PER_LEVEL) {
         setLevel(l => l + 1)
         return next - XP_PER_LEVEL
