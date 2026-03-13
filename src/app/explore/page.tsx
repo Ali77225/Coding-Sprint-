@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { ArrowLeft, ArrowRight, Lock } from "lucide-react"
 
 const domains = [
@@ -50,8 +51,9 @@ export default function ExplorePage() {
           {domains.map(domain => {
             const isCompleted = domain.status === "completed"
             const isInProgress = domain.status === "inProgress"
+            const href = domain.id === "rosetta" ? "/library" : undefined
 
-            return (
+            const card = (
               <article
                 key={domain.id}
                 className={`border border-[#E0D8CC] bg-white transition ${
@@ -122,6 +124,14 @@ export default function ExplorePage() {
                   )}
                 </div>
               </article>
+            )
+
+            return href ? (
+              <Link key={domain.id} href={href} className="block">
+                {card}
+              </Link>
+            ) : (
+              card
             )
           })}
         </section>
