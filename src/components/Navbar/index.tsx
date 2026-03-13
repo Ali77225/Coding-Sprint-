@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { User } from "lucide-react"
 
 export default function Navbar() {
@@ -13,7 +14,7 @@ const level = 1
 
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3">
-        <span className="text-2xl">🌍</span>
+        <Image src="/wikipedia-logo.png" alt="Wikipedia Learn" width={40} height={40} />
         <span className="font-['Playfair_Display'] font-bold uppercase tracking-[0.2em] text-[#1C1A16] text-sm">
           Wikipedia Learn
         </span>

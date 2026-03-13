@@ -1,7 +1,10 @@
 "use client"
+import "./globals.css"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import { useState, useCallback } from "react"
 
-// XP  pour débloquer les musiques
+// XP pour débloquer les musiques
 export const MUSIC_UNLOCKS: Record<number, string> = {
   30:  "🎵 Ambiance Study Lo-fi débloquée !",
   60:  "🎵 Musique Classique débloquée !",
@@ -41,4 +44,21 @@ export function useXP() {
   }, [])
 
   return { xp, maxXp: XP_PER_LEVEL, level, addXP, unlockedMusic, newUnlock }
+}
+
+// ADD THIS - The actual Layout component
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Navbar />
+        <main className="min-h-[calc(100vh-72px)]">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  )
 }
